@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<% if @book.errors.any? %>
+    <%= @book.errors.count %>errors prohibited this book from being saved:
+    <% @book.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+<% end %>
+
+<p><strong>Title:</strong>
+<%= @book.title %></p>
+<p><storng>body:</storng>
+<%= @book.body %></p>
+
+<%= link_to "Edit", edit_book_path(@book) %>
+|
+<%= link_to "Back", books_path %>
